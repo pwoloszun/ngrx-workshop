@@ -8,6 +8,10 @@ export const globalCounterFeatureKey = 'globalCounter';
 export interface State {
   value: number;
   updatedAt: number | null;
+
+  // formattedUpd: string;
+  // plFormattedUpd: string;
+  // engFormattedUpd: string;
 }
 
 const initialState: State = {
@@ -18,19 +22,11 @@ const initialState: State = {
 export const globalCounterReducer = createReducer(
   initialState,
 
-  on(actions.CartWidgetAddProduct, (state, action) => {
-    const { } = action; // TODO
-    const nextState = produce(state, (draft) => {
-      // TODO
-      // draft.ggg =123;
-    });
-    return nextState;
-  }),
-
   on(actions.GlobalCounterIncrement, (state, action) => {
-    const { incBy } = action; // TODO
+    const { incBy, timestamp } = action; // TODO
     const nextState = produce(state, (draft) => {
       draft.value = state.value + incBy;
+      draft.updatedAt = timestamp;
     });
     return nextState;
   }),

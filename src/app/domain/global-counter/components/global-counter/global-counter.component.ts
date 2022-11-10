@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
-import { of } from 'rxjs';
+import { map, of } from 'rxjs';
 
 import { actions, selectors } from '../../state/global-counter';
 
@@ -11,14 +11,32 @@ import { actions, selectors } from '../../state/global-counter';
 export class GlobalCounterComponent implements OnInit {
 
   counterValue$ = this.store.select(
-    (state: any) => state.globalCounter.value
+    selectors.selectGlobalCounterValue
+  );
+
+  counerUpdatedAt$ = this.store.select(
+    selectors.selectGlobalCounterFormattedUpdatedAt
+  );
+
+  // parametrized selectors
+  plUpdatedAt$ = this.store.select(
+    selectors.selectCalculateFormattedUpdatedAt
+  ).pipe(
+    map((calculateFormattedUpdatedAt) => calculateFormattedUpdatedAt('PL'))
+  );
+
+  engUpdatedAt$ = this.store.select(
+    selectors.selectCalculateFormattedUpdatedAt
+  ).pipe(
+    map((calculateFormattedUpdatedAt) => calculateFormattedUpdatedAt('EN'))
   );
 
   constructor(private readonly store: Store) { }
 
   incrementHandler() {
     const action = actions.GlobalCounterIncrement({
-      incBy: 5,
+      incBy: 2,
+      timestamp: Date.now(),
     });
     this.store.dispatch(action);
   }
