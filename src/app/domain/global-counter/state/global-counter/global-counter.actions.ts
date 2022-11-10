@@ -7,5 +7,11 @@ export const GlobalCounterIncrement = createAction(
 );
 
 
+export const MyAsyncOpSuccess = createAction(
+  '[GlobalCounter] Async op syccess',
+  props<{ data: string[] }>()
+);
+
+
 
 
