@@ -4,8 +4,9 @@ import { StoreModule } from '@ngrx/store';
 
 import { CustomMaterialModule } from '@ui/custom-material';
 
-import { globalCounterFeatureKey, globalCounterReducer } from './state/global-counter';
+import { globalCounterFeatureKey, globalCounterReducer, GlobalCounterEffects } from './state/global-counter';
 import { GlobalCounterComponent } from './components/global-counter/global-counter.component';
+import { EffectsModule } from '@ngrx/effects';
 
 const PUB_DECLARABLES = [
   GlobalCounterComponent,
@@ -24,6 +25,7 @@ const PUB_DECLARABLES = [
     // register feature state
     StoreModule.forFeature(globalCounterFeatureKey, globalCounterReducer),
     // TODO: ngrx register effects
+    EffectsModule.forFeature([GlobalCounterEffects]),
   ],
 })
 export class GlobalCounterModule { }

@@ -2,6 +2,7 @@ import * as actions from './global-counter.actions';
 import { globalCounterReducer, globalCounterFeatureKey } from './global-counter.reducer';
 import * as selectors from './global-counter.selectors';
 
+export { GlobalCounterEffects } from './global-counter.effects';
 export {
   actions,
   selectors,
