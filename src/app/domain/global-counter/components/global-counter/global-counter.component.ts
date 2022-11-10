@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 import { of } from 'rxjs';
 
 import { actions, selectors } from '../../state/global-counter';
@@ -10,13 +10,17 @@ import { actions, selectors } from '../../state/global-counter';
 })
 export class GlobalCounterComponent implements OnInit {
 
-  // TODO: read current state
-  counterValue$ = of(123456);
+  counterValue$ = this.store.select(
+    (state: any) => state.globalCounter.value
+  );
 
   constructor(private readonly store: Store) { }
 
   incrementHandler() {
-    // TODO: dispatch app event
+    const action = actions.GlobalCounterIncrement({
+      incBy: 5,
+    });
+    this.store.dispatch(action);
   }
 
   ngOnInit(): void { }

@@ -2,10 +2,13 @@ import { NEVER, Observable } from 'rxjs';
 
 interface Action { // events
   type: string;
-  // [key: string]: any;
-  payload?: any;
+  [key: string]: any;
+  // payload?: any;
 }
 
+// Flux Standard Action
+
+// [Source] Event
 const action2: Action = {
   type: '[CartWidget] AddProduct',
   payload: [
