@@ -1,0 +1,7 @@
+<ul class="bg-white rounded-lg border border-gray-200 w-full text-black">
+  <li *ngFor="let itemIterator of items; trackBy: trackByFn"
+      class="border-b border-gray-200 w-full">
+    <ng-container *ngTemplateOutlet="template; context: {item: itemIterator, $implicit: itemIterator}">
+    </ng-container>
+  </li>
+</ul>

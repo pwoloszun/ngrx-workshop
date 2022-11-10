@@ -1,0 +1,31 @@
+<app-loadable-container [data$]="activeVideo$"
+                        [loading$]="isLoading$">
+  <ng-template let-video>
+
+    <div class="flex h-full">
+      <div>
+        <app-video-player [video]="video"
+                          [currentTime]="activeVideoTime$ | async"
+                          [playerStatus]="activeVideoStatus$ | async"
+                          (playing)="playingVideoHandler($event)"
+                          [options]="playerOptions"></app-video-player>
+      </div>
+
+      <div class="p-2 md:p-4">
+        <h3 class="text-base font-medium">{{ video.title | truncateText:15 }}</h3>
+        <p class="text-sm font-normal">{{ video.createdAt | date:'mediumDate' }}</p>
+      </div>
+      <div class="p-2 md:p-4">
+        <div class="grid grid-rows-2 gap-2">
+          <button (click)="playVideoHandler()"
+                  [disabled]="!(canPlay$ | async)"
+                  class="btn-primary">Play</button>
+          <button (click)="pauseVideoHandler()"
+                  [disabled]="!(canPause$ | async)"
+                  class="btn-primary">Pause</button>
+        </div>
+      </div>
+    </div>
+
+  </ng-template>
+</app-loadable-container>

@@ -1,0 +1,15 @@
+<div *ngIf="isPanelVisible$ | async"
+     class="fixed z-10 left-0 bottom-0 w-full h-[90px] md:h-[180px] p-1 md:p-2 md:pl-[288px] bg-slate-200 border-t-2">
+  <div class="flex h-full">
+    <div class="w-3/4">
+      <app-tiny-video-player></app-tiny-video-player>
+    </div>
+
+    <div class="w-1/4">
+      <div class="p-2 md:p-4">
+        <button (click)="closeHandler()"
+                class="btn-secondary">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

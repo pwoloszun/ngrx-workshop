@@ -1,0 +1,46 @@
+<app-loadable-container [data$]="video$"
+                        [loading$]="isLoading$">
+  <ng-template let-video>
+
+    <div class="flex flex-col">
+      <div class="relative">
+        <img [src]="video.posterUrl"
+             class="w-full aspect-video object-cover"
+             [ngClass]="playerCssClass" />
+
+        <div class="absolute top-[20%] left-[20%] w-3/5 aspect-video bg-gray-600">
+          <div class="flex flex-col justify-center h-full">
+            <div class="text-white text-center text-s md:text-2xl font-medium">
+              {{ timeLeft$ | async }}
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="showProgress"
+             class="w-full absolute bottom-4">
+          <div class="bg-gray-300 h-[5px] relative">
+            <div class="bg-red-600 h-full"
+                 [style]="progressWidthCss$ | async">
+              <div class="bg-red-600 h-[9px] w-[9px] absolute top-[-2px] rounded-full"
+                   [style]="currProgressPositionCss$ | async"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="showControls"
+           class="bg-black p-2">
+        <button (click)="playHandler()"
+                [disabled]="!canPlay"
+                class="btn-primary mr-2">Play</button>
+        <button (click)="pauseHandler()"
+                [disabled]="!canPause"
+                class="btn-primary mr-2">Pause</button>
+        <button (click)="stopHandler()"
+                [disabled]="!canStop"
+                class="btn-primary mr-2">Stop</button>
+      </div>
+    </div>
+
+  </ng-template>
+</app-loadable-container>

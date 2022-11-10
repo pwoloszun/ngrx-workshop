@@ -1,0 +1,22 @@
+<mat-expansion-panel (opened)="openPanelHandler()"
+                     (closed)="closePanelHandler()"
+                     class="p-2">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Playlist
+    </mat-panel-title>
+    <mat-panel-description>
+      {{panelOpenState ? 'Playlist Loaded' : '(Click to load Playlist)'}}
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+
+  <app-loadable-list [items$]="playlistVideos$"
+                     [loading$]="isLoading$"
+                     [trackByFn]="trackByVideoChange">
+    <ng-template let-video>
+      <app-extendable-playlist-item [video]="video"
+                                    [isActive]="activeVideoId === video.id"></app-extendable-playlist-item>
+    </ng-template>
+  </app-loadable-list>
+
+</mat-expansion-panel>

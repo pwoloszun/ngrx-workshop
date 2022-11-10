@@ -1,0 +1,40 @@
+<h1 mat-dialog-title>Draft Mail</h1>
+
+<div mat-dialog-content
+     class="grid grid-rows-4 grid-flow-col gap-2">
+
+  <mat-form-field appearance="outline">
+    <mat-label>Send To</mat-label>
+    <input matInput
+           type="text" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Title</mat-label>
+    <input matInput
+           type="text" />
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width"
+                  appearance="outline">
+    <mat-label>Content</mat-label>
+    <textarea matInput
+              placeholder="Your email"></textarea>
+  </mat-form-field>
+</div>
+
+<div mat-dialog-actions
+     class="flex gap-x-2">
+  <div>
+    <button mat-raised-button
+            color="primary"
+            (click)="sendHandler()"
+            cdkFocusInitial>Send</button>
+  </div>
+
+  <div>
+    <button mat-raised-button
+            class="bg-slate-300"
+            (click)="closeHandler()">Close</button>
+  </div>
+</div>

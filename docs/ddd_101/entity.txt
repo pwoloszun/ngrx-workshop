@@ -1,0 +1,3 @@
+Entity:
+A plain object that has an identity (ID) and is potentially mutable.
+Each entity is uniquely identified by an ID rather than by an attribute.

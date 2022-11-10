@@ -1,0 +1,14 @@
+<div>
+  <div class="flex justify-end">
+    <button (click)="toggleBtnHandler()"
+            class="btn-dark">
+      <mat-icon aria-hidden="false"
+                aria-label="Expand Playlist"
+                fontIcon="featured_play_list"></mat-icon>
+    </button>
+  </div>
+
+  <div *ngIf="isExpanded">
+    list TODO
+  </div>
+</div>

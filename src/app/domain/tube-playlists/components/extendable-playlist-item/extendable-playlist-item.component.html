@@ -1,0 +1,22 @@
+<div *ngIf="video"
+     class="flex flex-col md:flex-row md:p-2"
+     [ngClass]="itemCss">
+  <div class="md:w-1/3">
+
+    <a [routerLink]="video.linkUrl">
+      <img [src]="video.posterUrl"
+           [alt]="video.title"
+           class="aspect-video w-full" />
+    </a>
+
+  </div>
+  <div class="md:w-2/3 md:pl-2">
+
+    <a [routerLink]="video.linkUrl">
+      <h3 class="text-xs md:text-base truncate">
+        {{ video.title }}
+      </h3>
+    </a>
+
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<app-loadable-list [items$]="featuredVideos$"
+                   [loading$]="isLoading$"
+                   [trackByFn]="trackByVideoChange">
+  <ng-template let-video>
+
+    <div class="p-2 md:p-4"
+         role="region"
+         aria-label="Video Item">
+      <div class="flex">
+        <div class="w-1/3">
+
+          <a [routerLink]="video.linkUrl">
+            <app-featured-poster [video]="video"></app-featured-poster>
+          </a>
+
+        </div>
+        <div class="w-2/3 pl-2 md:pl-4">
+          <h3 aria-label="Title">
+            <a [routerLink]="video.linkUrl"
+               class="text-xl font-medium">
+              {{ video.title }}
+            </a>
+          </h3>
+          <p role="region"
+             aria-label="Description">
+            {{ video.description }}
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </ng-template>
+</app-loadable-list>

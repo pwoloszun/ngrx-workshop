@@ -1,0 +1,5 @@
+Application service — orchestrates the execution of domain logic and don’t implement
+any domain logic. Domain service methods can have other domain elements as
+operands and return values. Application services declare dependencies on
+infrastructural services required to execute domain logic. Application services
+operate upon trivial operands such as identity values and primitive data structures.

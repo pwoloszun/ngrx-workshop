@@ -1,0 +1,15 @@
+<app-loadable-container [data$]="items$"
+                        [loading$]="loading$"
+                        [error$]="error$">
+  <ng-template let-items>
+
+    <app-flexible-list [items]="items"
+                       [trackByFn]="trackByFn">
+      <ng-template let-item>
+        <ng-container [ngTemplateOutlet]="renderListItemTmpl"
+                      [ngTemplateOutletContext]="{item: item, $implicit: item}"></ng-container>
+      </ng-template>
+    </app-flexible-list>
+
+  </ng-template>
+</app-loadable-container>

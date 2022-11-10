@@ -1,0 +1,19 @@
+<mat-card>
+  <mat-card-subtitle>
+    Global Counter
+  </mat-card-subtitle>
+
+  <mat-card-title>
+    Value: {{ counterValue$ | async }}
+  </mat-card-title>
+
+  <mat-divider inset></mat-divider>
+
+  <mat-card-actions>
+    <button (click)="incrementHandler()"
+            mat-raised-button
+            color="primary">
+      Increment
+    </button>
+  </mat-card-actions>
+</mat-card>

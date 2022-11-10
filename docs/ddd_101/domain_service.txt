@@ -1,0 +1,3 @@
+Domain service — embeds and operate upon domain concepts and is part
+of the ubiquitous language. Domain services are very granular, contain
+domain logic that can’t be placed naturally in an entity or value object.

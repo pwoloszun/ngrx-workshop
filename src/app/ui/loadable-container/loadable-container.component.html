@@ -1,0 +1,23 @@
+<ng-container [ngSwitch]="status$ | async">
+
+  <ng-container *ngSwitchCase="allStatuses.error">
+    <app-alert-panel type="danger"
+                     [message]="errMessage$ | async"></app-alert-panel>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="allStatuses.loading">
+    <app-loading-indicator></app-loading-indicator>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="allStatuses.render">
+    <ng-container *ngrxLet="data$ as data; suspenseTpl: loadingTmpl">
+      <ng-container [ngTemplateOutlet]="renderDataTemplate"
+                    [ngTemplateOutletContext]="{data: data, $implicit: data}"></ng-container>
+    </ng-container>
+  </ng-container>
+
+</ng-container>
+
+<ng-template #loadingTmpl>
+  <app-loading-indicator></app-loading-indicator>
+</ng-template>

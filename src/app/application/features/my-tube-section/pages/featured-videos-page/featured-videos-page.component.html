@@ -1,0 +1,14 @@
+<h3 class="m-2 text-lg font-medium">Featured Videos</h3>
+
+<div class="flex flex-row m-2">
+  <div [ngClass]="leftColCssClass">
+    <app-user-featured-videos></app-user-featured-videos>
+  </div>
+  <div [ngClass]="rightColCssClass"
+       class="pl-2">
+    <app-condensed-playlist [isExpanded]="isPlaylistExpanded"
+                            (toggleExpand)="toggleExpandHandler()"></app-condensed-playlist>
+  </div>
+</div>
+
+<app-minature-video-panel></app-minature-video-panel>

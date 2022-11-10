@@ -1,0 +1,7 @@
+Factories:
+An abstraction to the object (VO, Entity, Aggregate) construction.
+
+Usually Factories are interfaces defined within the domain/domain services layer
+with implementation logic defined in the infrastructure layer.
+
+
