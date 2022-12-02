@@ -13,6 +13,8 @@ export class GlobalCounterComponent implements OnInit {
     selectors.selectGlobalCounterValue
   );
 
+  // TODO 1: updatedAt$
+
   constructor(private readonly store: Store) { }
 
   incrementHandler() {
@@ -20,6 +22,11 @@ export class GlobalCounterComponent implements OnInit {
       incBy: 20
     });
     this.store.dispatch(action);
+  }
+
+  decrementHandler() {
+    // TODO 2
+    const timestamp = Date.now();
   }
 
   ngOnInit(): void { }
