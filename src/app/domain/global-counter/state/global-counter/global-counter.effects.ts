@@ -15,7 +15,11 @@ export class GlobalCounterEffects {
 
       ofType(GlobalCounterActions.GlobalCounterIncrement),
       /** An EMPTY observable only emits completion. Replace with your own observable API request */
-      concatMap(() => EMPTY as Observable<{ type: string }>)
+      concatMap((action) => {
+        console.log('EFFECT:', action);
+
+        return EMPTY as Observable<{ type: string }>
+      })
     );
   });
 
