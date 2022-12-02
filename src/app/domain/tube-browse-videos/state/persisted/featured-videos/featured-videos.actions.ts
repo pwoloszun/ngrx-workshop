@@ -1,6 +1,6 @@
 import { createAction, props } from '@ngrx/store';
 
-import { VideoDto } from '@infrastructure/api/video-api.service';
+import { VideoEntity } from '../../repositories/featured-video-repo.service';
 
 export const ActionTODO = createAction(
   '[Featured Videos] TODO',
