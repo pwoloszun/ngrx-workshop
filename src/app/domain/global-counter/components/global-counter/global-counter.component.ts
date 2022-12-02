@@ -15,7 +15,7 @@ export class GlobalCounterComponent implements OnInit {
   );
 
   updatedAt$ = this.store.select(
-    selectors.selectGlobalCounterUpdatedAt
+    selectors.selectGlobalCounterFormattedUpdatedAt
   );
 
   constructor(private readonly store: Store) { }
