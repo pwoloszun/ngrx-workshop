@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { of } from 'rxjs';
 
 import { actions, selectors } from '../../state/global-counter';
-import { distinctUntilChanged } from 'rxjs/operators';
 
 @Component({
   selector: 'app-global-counter',
