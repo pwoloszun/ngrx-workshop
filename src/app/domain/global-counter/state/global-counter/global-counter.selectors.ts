@@ -12,3 +12,6 @@ const selectGlobalCounterState = createFeatureSelector<fromGlobalCounter.State>(
 
 export const selectGlobalCounterValue =
   (state: any) => state['globalCounter'].value;
+
+export const selectGlobalCounterUpdatedAt =
+  (state: any) => state['globalCounter'].updatedAt;

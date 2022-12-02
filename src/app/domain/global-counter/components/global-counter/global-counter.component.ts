@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { of } from 'rxjs';
 
 import { actions, selectors } from '../../state/global-counter';
 
@@ -13,7 +14,9 @@ export class GlobalCounterComponent implements OnInit {
     selectors.selectGlobalCounterValue
   );
 
-  // TODO 1: updatedAt$
+  updatedAt$ = this.store.select(
+    selectors.selectGlobalCounterUpdatedAt
+  );
 
   constructor(private readonly store: Store) { }
 
