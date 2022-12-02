@@ -27,4 +27,13 @@ export const globalCounterReducer = createReducer(
     return nextState;
   }),
 
+  on(actions.GlobalCounterDecrement, (state, action) => {
+    const { decBy, timestamp } = action;
+    const nextState = produce(state, (draft) => {
+      draft.value = state.value - decBy;
+      draft.updatedAt = timestamp;
+    });
+    return nextState;
+  }),
+
 );

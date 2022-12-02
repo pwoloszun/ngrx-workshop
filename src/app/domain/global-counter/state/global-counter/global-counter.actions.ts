@@ -11,6 +11,16 @@ export const GlobalCounterIncrement = createAction(
   props<{ incBy: number; }>()
 );
 
+interface GlobalCounterDecrementProps {
+  decBy: number;
+  timestamp: number;
+}
+
+export const GlobalCounterDecrement = createAction(
+  '[GlobalCounter] Decrement',
+  props<GlobalCounterDecrementProps>()
+);
+
 // export const myCartWidgetAddProduct = function (payload: { incBy: number; }) {
 //   const { incBy } = payload;
 //   return {

@@ -30,6 +30,12 @@ export class GlobalCounterComponent implements OnInit {
   decrementHandler() {
     // TODO 2
     const timestamp = Date.now();
+
+    const action = actions.GlobalCounterDecrement({
+      decBy: 5,
+      timestamp
+    });
+    this.store.dispatch(action);
   }
 
   ngOnInit(): void { }
