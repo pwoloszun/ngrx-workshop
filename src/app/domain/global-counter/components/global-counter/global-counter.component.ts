@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { of } from 'rxjs';
 
 import { actions, selectors } from '../../state/global-counter';
+import { distinctUntilChanged } from 'rxjs/operators';
 
 @Component({
   selector: 'app-global-counter',
@@ -17,7 +18,10 @@ export class GlobalCounterComponent implements OnInit {
   constructor(private readonly store: Store) { }
 
   incrementHandler() {
-    // TODO: dispatch app event
+    const action = actions.GlobalCounterIncrement({
+      incBy: 20
+    });
+    this.store.dispatch(action);
   }
 
   ngOnInit(): void { }

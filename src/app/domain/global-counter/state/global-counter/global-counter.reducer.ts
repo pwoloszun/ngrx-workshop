@@ -18,11 +18,12 @@ const initialState: State = {
 export const globalCounterReducer = createReducer(
   initialState,
 
-  on(actions.CartWidgetAddProduct, (state, action) => {
-    const { } = action; // TODO
+  on(actions.GlobalCounterIncrement, (state, action) => {
+    const { incBy } = action;
     const nextState = produce(state, (draft) => {
-      // TODO
+      draft.value = state.value + incBy;
     });
+
     return nextState;
   }),
 

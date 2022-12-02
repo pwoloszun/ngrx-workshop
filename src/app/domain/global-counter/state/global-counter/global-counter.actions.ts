@@ -11,6 +11,10 @@ export const GlobalCounterIncrement = createAction(
   props<{ incBy: number; }>()
 );
 
-
-
-
+// export const myCartWidgetAddProduct = function (payload: { incBy: number; }) {
+//   const { incBy } = payload;
+//   return {
+//     type: '[GlobalCounter] Increment',
+//     incBy,
+//   };
+// }
