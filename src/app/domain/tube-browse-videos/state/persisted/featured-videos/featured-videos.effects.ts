@@ -7,27 +7,20 @@ import { actions as uiVideoActivitiesActions } from '@domain/tube-browse-videos/
 import * as actions from './featured-videos.actions';
 import * as selectors from './featured-videos.selectors';
 import { FeaturedVideoRepoService } from '../../repositories/featured-video-repo.service';
+import { EMPTY, Observable } from 'rxjs';
 
 @Injectable()
 export class FeaturedVideosEffects {
 
-  private areVideosFetched$ = this.store.select(
-    selectors.selectAreVideosFetched
-  );
-
   FetchMissingVideosFlow$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(
-        actions.FetchVideosRequest,
+        actions.ActionTODO,
         // TODO
       ),
       // TODO modify: fetch ONLY if not already fetch
       switchMap(() => {
-        return this.featuredVideosRepo.findAll().pipe(
-          map((videos) => {
-            return actions.FetchVideosSuccess({ videos });
-          }),
-        )
+        return EMPTY as Observable<{ type: string }>;
       })
     );
   });

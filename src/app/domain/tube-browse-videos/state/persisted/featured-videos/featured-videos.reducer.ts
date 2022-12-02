@@ -1,15 +1,14 @@
 import { createReducer, on } from '@ngrx/store';
 import produce from 'immer';
 
-import { VideoDto } from '@infrastructure/api/video-api.service';
-
 import * as actions from './featured-videos.actions';
+import { VideoEntity } from '../../repositories/featured-video-repo.service';
 
 export const featuredVideosFeatureKey = 'featuredVideos';
 
 export interface State {
   isLoading: boolean;
-  videos: VideoDto[];
+  videos: VideoEntity[];
 }
 
 const initialState: State = {
@@ -20,21 +19,13 @@ const initialState: State = {
 export const featuredVideosReducer = createReducer(
   initialState,
 
-  on(actions.FetchVideosRequest, (state) => {
-    const anyVideosFetched = state.videos.length > 0;
+  on(actions.ActionTODO, (state, action) => {
+    const { myData } = action;
+    // TODO
     const nextState = produce(state, (draft) => {
-      draft.isLoading = !anyVideosFetched;
     });
     return nextState;
   }),
 
-  on(actions.FetchVideosSuccess, (state, action) => {
-    const { videos } = action;
-    const nextState = produce(state, (draft) => {
-      draft.isLoading = false;
-      draft.videos = videos;
-    });
-    return nextState;
-  }),
 
 );
