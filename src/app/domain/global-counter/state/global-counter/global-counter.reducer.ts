@@ -4,13 +4,14 @@ import * as actions from './global-counter.actions';
 
 export const globalCounterFeatureKey = 'globalCounter';
 
+// slice State shape
 export interface State {
   value: number;
   updatedAt: number | null;
 }
 
 const initialState: State = {
-  value: 200,
+  value: 500,
   updatedAt: null,
 };
 

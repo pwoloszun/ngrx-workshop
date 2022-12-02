@@ -2,9 +2,13 @@ import { NEVER, Observable } from 'rxjs';
 
 interface Action { // events
   type: string;
-  // [key: string]: any;
   payload?: any;
+  [key: string]: any;
 }
+
+// FSA - Flux Standard Action
+
+// type = '[Source] Event',
 
 const action2: Action = {
   type: '[CartWidget] AddProduct',
@@ -22,8 +26,8 @@ class Store {
   getState(): State { /*...*/ return {} as any }
 
   // ngrx
-  // select(): Observable<State> { return NEVER }
-  // pipe(): Observable<any> { return NEVER }
+  select(): Observable<State> { return NEVER }
+  pipe(): Observable<any> { return NEVER }
 }
 
 
@@ -47,13 +51,10 @@ interface State {
 // global app state
 const state: State = {
 
-  // e-commerce example
-  // user: {},
-  // catalog: {},
-  // cart: {},
-  // account: {},
-  // ordersHistory: {},
-  // admin: {},
+  // 'globalCounter': {
+  //   value: 100,
+  //   updatedAt: 1212123123213121
+  // },
 
   cart: { // cart state slice
     // ...
@@ -107,8 +108,8 @@ function cartReducer(state: CartStateSlice, action: Action): State {
 
 // some Store private impl
 function rootReducer(state: State, action: Action) {
-  const nextUsersState = usersReducer(state.users, action);
   const nextCartState = cartReducer(state.cart, action);
+  const nextUsersState = usersReducer(state.users, action);
 
   const nextAppState = {
     ...state,
@@ -131,6 +132,7 @@ store.subscribe(() => {
 store.subscribe(() => {
   const state = store.getState();
   //do smth
+  // selectGlobCounterValue(state)
 });
 
 export { }

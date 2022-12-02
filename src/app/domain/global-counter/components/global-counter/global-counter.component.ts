@@ -10,8 +10,9 @@ import { actions, selectors } from '../../state/global-counter';
 })
 export class GlobalCounterComponent implements OnInit {
 
-  // TODO: read current state
-  counterValue$ = of(123456);
+  counterValue$ = this.store.select(
+    selectors.selectGlobalCounterValue
+  );
 
   constructor(private readonly store: Store) { }
 
